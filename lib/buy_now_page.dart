@@ -1,4 +1,3 @@
-// lib/buy_now_page.dart
 import 'package:flutter/material.dart';
 
 class buynowpage extends StatelessWidget {
@@ -27,19 +26,55 @@ class buynowpage extends StatelessWidget {
     child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            //Text('$bookName'),
+           // crossAxisAlignment: CrossAxisAlignment.center,
+        Text('$bookName',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+          fontSize: 25.0,
+          fontWeight: FontWeight.bold,
+        ),
+        ),
             Image.asset(
               coverImage,
               width: 150,
               height: 250,
               fit: BoxFit.cover,
+              //elevation: 10.0,
+
             ),
             SizedBox(height: 16),
-            Text('Book Name: $bookName'),
-            Text('Author: $authorName'),
-            Text('Short Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
-            Text('Price: \$19.99'),
+            Center(child: Text('$authorName',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 15.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Center(
+              child: Text(
+                '"Harry truly seems at his happiest when he plays Quidditch, as we can see here in this vivid interpretation of his match against Slytherin. The use of strong reds in this image bring out the vibrancy of the wizard sport, not to mention a nod to Harry’s Gryffindor house colors."',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 15.0,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            ),
+            Center(
+              child: Text('Price: ৳500',
+              textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.green,
+                ),
+              ),
+            ),
+            //Text('Price: \$500'),
             SizedBox(height: 16),
             DropdownButton<String>(
               // Implement dropdown options
@@ -54,6 +89,7 @@ class buynowpage extends StatelessWidget {
               },
               child: Text('Go Back'),
             ),
+
           ],
         ),
       ),
