@@ -2,22 +2,23 @@ import 'package:flutter/material.dart';
 import 'buy_now_page.dart';
 
 class BookListPage extends StatelessWidget {
+  const BookListPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Book Shop"),
+        title: const Text("Book Shop"),
         backgroundColor: Colors.teal[600],
       ),
       body: ListView(
         children:[
-          _buildBookCard(context, 'Harry Potter and the Philosopher’s Stone', 'J.K. ROWLING', '4.50', 'images/book1.png'),
-          // Add another card for the second book
+          _buildBookCard(context, 'Harry Potter and the Philosopher’s Stone', 'J.K. ROWLING', '2.50', 'images/book1.png'),
+          _buildBookCard(context, 'Jurassic Park', 'Michael Crichton', '4.00', 'images/book2.png'),
         ],
       ),
     );
   }
-
   Widget _buildBookCard(BuildContext context, String bookName, String authorName, String rating, String coverImage) {
     return Card(
       child: ListTile(
@@ -28,7 +29,7 @@ class BookListPage extends StatelessWidget {
          // fit: BoxFit.cover,
         ),
         title: Text(bookName,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 17.0,
             fontWeight: FontWeight.bold,
           ),
@@ -37,14 +38,14 @@ class BookListPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(authorName),
-            Icon(
+            const Icon(
               Icons.star,
               color: Colors.yellow,
             ),
 
             Text(
               'Rating: $rating',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16.0,
                 color: Colors.green,
               ),
@@ -52,16 +53,16 @@ class BookListPage extends StatelessWidget {
           ],
         ),
 
-        trailing: ElevatedButton.icon(
+
+    trailing: ElevatedButton.icon(
           onPressed: () {
-            // Navigate to the Buy Now page when the button is pressed
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => buynowpage(bookName, coverImage, authorName)),
             );
           },
-          icon: Icon(Icons.shopping_cart),
-          label: Text('Buy Now'),
+          icon: const Icon(Icons.shopping_cart),
+          label: const Text('Buy Now'),
         ),
       ),
     );
